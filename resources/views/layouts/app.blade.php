@@ -68,13 +68,54 @@
                                     </div>
                                 </li>
                             @endif
+                            @if(Auth::user()->role >= 2)
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Meistras
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{route('mc_index')}}">
+                                            Meistru sarasas
+                                        </a>
+                                        @if(Auth::user()->role >= 10)
+                                            <a class="dropdown-item" href="{{route('mc_create')}}">
+                                                Naujas Meistras
+                                            </a>
+                                        @endif
+                                    </div>
+                                </li>
+                            @endif
+                            @if(Auth::user()->role >= 2)
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Paslauga
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{route('pc_index')}}">
+                                            Paslaugu sarasas
+                                        </a>
+                                        @if(Auth::user()->role >= 10)
+                                            <a class="dropdown-item" href="{{route('pc_create')}}">
+                                                Nauja Paslauga
+                                            </a>
+                                        @endif
+                                    </div>
+                                </li>
+                            @endif
                             <!-- END HERE -->
                             <li class="nav-item dropdown">
+
+
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @if(Auth::user()->role >= 2)
+                                    <a class="dropdown-item" href="{{route('uc_index')}}">
+                                        vartotoju sarasas
+                                    </a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -93,6 +134,7 @@
         </nav>
 
         <main class="py-4">
+            @include('msg.msg')
             @yield('content')
         </main>
     </div>

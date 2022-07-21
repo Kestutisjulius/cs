@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Autoservisas AS A;
 use App\Models\Paslauga AS P;
+use App\Models\Machanikas AS M;
 use Illuminate\Http\Request;
 
 class AutoservisasController extends Controller
@@ -22,21 +23,20 @@ class AutoservisasController extends Controller
 
     public function create()
     {
-        return view('auto.create', ['paslaugas'=>P::all()]);
+        return view('auto.create', ['paslaugos'=>P::all(), 'mechanikai'=>M::all()]);
     }
 
 
     public function store(Request $request)
     {
         $aServices = new A;
-
-        $aServices->name = $request->animal_name;
-
-
-
+        $aServices->name = $request->name;
+        $aServices->phone = $request->phone;
+        $aServices->paslauga_id = $request->paslaugos_id;
+        $aServices->mechanikas_id = $request->mechanikas_id;
+        $aServices->address = $request->address;
         $aServices->save();
-
-        return redirect()->route('ac_index')->with('success', 'Animal are saved!');
+        return redirect()->route('ac_index')->with('success', 'autoservisas sukurtas!');
     }
 
 

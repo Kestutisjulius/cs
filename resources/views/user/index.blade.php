@@ -6,20 +6,21 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h1>visi autoservisai</h1>
+                        <h1>visos Paslaugos</h1>
                         <div> rusiuoti:
-                            <a href="{{route('ac_index', ['sort' => 'asc'])}}">A to Z</a>
-                            <a href="{{route('ac_index', ['sort' => 'desc'])}}">Z to A</a>
-                            <a href="{{route('ac_index')}}">Reset</a>
+                            <a href="{{route('uc_index', ['sort' => 'asc'])}}">A to Z</a>
+                            <a href="{{route('uc_index', ['sort' => 'desc'])}}">Z to A</a>
+                            <a href="{{route('uc_index')}}">Reset</a>
                         </div>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-                            @forelse($aServices as $aService)
+                            @forelse($users as $user)
                                 <li class="list-group-item">
                                     <div class="service-bin">
                                         <div class="service-box">
-                                            <h2>{{$aService->name}}</h2>
+                                            <h6>{{$user->name}}</h6>
+                                            <h2>{{$user->email}}</h2>
                                         </div>
                                         <div class="trijule">
                                             <a class="btn btn-outline-primary m-2" href="">Show</a>
@@ -35,7 +36,7 @@
                                     </div>
                                 </li>
                             @empty
-                                <li class="list-group-item">?SERVICES, no life.</li>
+                                <li class="list-group-item">?ner useriu, IMPOSSSIBLE!!! :( ...</li>
                             @endforelse
                         </ul>
                     </div>
