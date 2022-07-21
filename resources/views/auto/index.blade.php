@@ -21,11 +21,11 @@
                                         <div class="service-box">
                                             <h2>{{$aService->name}}</h2>
                                         </div>
-                                        <div class="controls">
+                                        <div class="trijule">
                                             <a class="btn btn-outline-primary m-2" href="">Show</a>
 
                                             <a class="btn btn-outline-success m-2" href="">Edit</a>
-                                            <form class="delete" action="" method="post">
+                                            <form  action="" method="post">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-outline-danger m-2">Kill</button>

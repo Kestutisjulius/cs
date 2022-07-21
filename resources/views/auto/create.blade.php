@@ -32,6 +32,24 @@
                                 </div>
                             </div>
 
+                            <div class="row mb-3">
+                                <label for="paslaugos_id" class="col-md-4 col-form-label text-md-end">Paslauga</label>
+                                <select id="paslaugos_id" name="paslaugos_id" class="form-select form-select-sm">
+                                    @foreach($paslaugos as $paslauga)
+                                        <option value="{{$paslauga->id}}">{{$paslauga->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="mechanikas_id" class="col-md-4 col-form-label text-md-end">Mechanikas</label>
+                                <select id="mechanikas_id" name="mechanikas_id" class="form-select form-select-sm">
+                                    @foreach($mechanikai as $mechanikas)
+                                        <option value="{{$mechanikas->id}}">{{$mechanikas->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
