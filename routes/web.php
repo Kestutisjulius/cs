@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController AS HC;
 use App\Http\Controllers\AutoservisasController AS AC;
 use App\Http\Controllers\MachanikasController AS MC;
 use App\Http\Controllers\PaslaugaController AS PC;
@@ -23,4 +24,4 @@ Route::get('/vartotojai', [UC::class, 'index'])->name('uc_index');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HC::class, 'index'])->name('home');
