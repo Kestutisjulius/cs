@@ -18,125 +18,125 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Autoservisu paslaugos
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<div id="app">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                Autoservisu paslaugos
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav me-auto">
 
-                    </ul>
+                </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ms-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                        @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <!-- START HERE -->
-                            @if(Auth::user()->role >= 2)
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        Autoservisas
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{route('ac_index')}}">
-                                            Autoservisu sarasas
-                                        </a>
-                                        @if(Auth::user()->role >= 10)
-                                            <a class="dropdown-item" href="{{route('ac_create')}}">
-                                                Naujas Autoservisas
-                                            </a>
-                                        @endif
-                                    </div>
-                                </li>
-                            @endif
-                            @if(Auth::user()->role >= 2)
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        Meistras
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{route('mc_index')}}">
-                                            Meistru sarasas
-                                        </a>
-                                        @if(Auth::user()->role >= 10)
-                                            <a class="dropdown-item" href="{{route('mc_create')}}">
-                                                Naujas Meistras
-                                            </a>
-                                        @endif
-                                    </div>
-                                </li>
-                            @endif
-                            @if(Auth::user()->role >= 2)
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        Paslauga
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{route('pc_index')}}">
-                                            Paslaugu sarasas
-                                        </a>
-                                        @if(Auth::user()->role >= 10)
-                                            <a class="dropdown-item" href="{{route('pc_create')}}">
-                                                Nauja Paslauga
-                                            </a>
-                                        @endif
-                                    </div>
-                                </li>
-                            @endif
-                            <!-- END HERE -->
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <!-- START HERE -->
+                        @if(Auth::user()->role >= 2)
                             <li class="nav-item dropdown">
-
-
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    Autoservisas
                                 </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{route('ac_index')}}">
+                                        Autoservisu sarasas
+                                    </a>
+                                    @if(Auth::user()->role >= 10)
+                                        <a class="dropdown-item" href="{{route('ac_create')}}">
+                                            Naujas Autoservisas
+                                        </a>
+                                    @endif
+                                </div>
+                            </li>
+                        @endif
+                        @if(Auth::user()->role >= 2)
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Meistras
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{route('mc_index')}}">
+                                        Meistru sarasas
+                                    </a>
+                                    @if(Auth::user()->role >= 10)
+                                        <a class="dropdown-item" href="{{route('mc_create')}}">
+                                            Naujas Meistras
+                                        </a>
+                                    @endif
+                                </div>
+                            </li>
+                        @endif
+                        @if(Auth::user()->role >= 2)
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Paslauga
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{route('pc_index')}}">
+                                        Paslaugu sarasas
+                                    </a>
+                                    @if(Auth::user()->role >= 10)
+                                        <a class="dropdown-item" href="{{route('pc_create')}}">
+                                            Nauja Paslauga
+                                        </a>
+                                    @endif
+                                </div>
+                            </li>
+                        @endif
+                        <!-- END HERE -->
+                        <li class="nav-item dropdown">
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    @if(Auth::user()->role >= 2)
+
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                @if(Auth::user()->role >= 2)
                                     <a class="dropdown-item" href="{{route('uc_index')}}">
                                         vartotoju sarasas
                                     </a>
-                                    @endif
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                @endif
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                    {{ __('Logout') }}
+                                </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <main class="py-4">
-            @include('msg.msg')
-            @yield('content')
-        </main>
-    </div>
+    <main class="py-4">
+        @include('msg.msg')
+        @yield('content')
+    </main>
+</div>
 </body>
 </html>
