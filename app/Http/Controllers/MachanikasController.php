@@ -2,84 +2,55 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Machanikas;
-use App\Http\Requests\StoreMachanikasRequest;
-use App\Http\Requests\UpdateMachanikasRequest;
+use App\Models\Machanikas AS M;
+use Illuminate\Http\Request;
 
 class MachanikasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-        //
+        $mechanikai = match ($request->sort)
+        {
+            'asc' => M::orderBy('name', 'asc')->get(),
+            'desc' => M::orderBy('name', 'desc')->get(),
+            default => M::all()
+        };
+        return view('mech.index', ['mechanikai'=> $mechanikai]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('mech.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreMachanikasRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreMachanikasRequest $request)
+    public function store(Request $request)
+    {
+        $mechanikas = new M;
+        $mechanikas->name = $request->name;
+        $mechanikas->surname = $request->surname;
+        $mechanikas->photo = $request->photo;
+        $mechanikas->rating = $request->reitingas;
+        $mechanikas->save();
+        return redirect()->route('mc_index')->with('success', 'mechanikas Yra!');
+    }
+
+    public function show(M $machanikas)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Machanikas  $machanikas
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Machanikas $machanikas)
+    public function edit(M $machanikas)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Machanikas  $machanikas
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Machanikas $machanikas)
+    public function update(Request $request, M $machanikas)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateMachanikasRequest  $request
-     * @param  \App\Models\Machanikas  $machanikas
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateMachanikasRequest $request, Machanikas $machanikas)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Machanikas  $machanikas
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Machanikas $machanikas)
+    public function destroy(M $machanikas)
     {
         //
     }

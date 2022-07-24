@@ -6,10 +6,9 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
-
-.form-select{
-    width: 46%;
-    margin-left: 12px;
+.invoice-row{
+ justify-content: space-between;
+    flex-wrap: wrap;
 }
 .trijule{
     display: flex;
