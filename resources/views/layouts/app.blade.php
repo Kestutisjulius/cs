@@ -116,6 +116,20 @@
                                         vartotoju sarasas
                                     </a>
                                 @endif
+                                    @if(Auth::user()->role >= 10)
+                                        <a class="dropdown-item" href="{{route('uc_create')}}">
+                                            Naujas vartotojas
+                                        </a>
+                                    @endif
+                                    @if(Auth::user()->role >= 0)
+
+                                        <form class="delete" action="{{route('uc_gone', Auth::user())}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-outline-danger m-2">Naikinti registraciją</button>
+                                        </form>
+
+                                    @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
