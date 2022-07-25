@@ -15,16 +15,25 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Request $request)
+    public function index()
     {
+        $iName = DB::table('invoices', 'i')
+//            ->join('paslaugas', 'paslaugas.id', '=', 'invoices.paslauga_id')
+//            ->join('paslaugas', 'paslaugas.id', '=', 'autoservisas.paslauga_id')
+//            ->join('mechanikas', 'mechanikas.id', '=', 'mechanikas.paslauga_id')
+//            ->join('user', 'user.id', '=', 'invoices.user_id')
+            ->select('i.*')
 
-        $invoicesDIR = [DB::table('invoices')
-            ->join('paslaugas as p', 'p.id', '=', 'invoices.paslauga_id')
-            ->select('p.*', 'invoices.*')
-            ->orderBy('invoices.id', 'asc')
-            ->get(), 'default'];
+
+            ->get();
 
 
-        return view('home', ['invoices'=>$invoicesDIR[0]]);
+//        $iName = I::all()->first();
+//        $paslauga=$iName->paslauga;
+//        $servisas = $iName->paslauga->autoservisas[0];
+//        $meistras = $iName->paslauga->autoservisas[0]->mechanikas;
+//        $uzsakymas = ['paslauga'=>$paslauga, 'meistras'=>$meistras, 'servisas'=>$servisas];
+        dd($iName);
+        return view('home', ['paslauga'=>$iName]);
     }
 }

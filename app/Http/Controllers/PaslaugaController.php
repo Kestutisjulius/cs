@@ -31,7 +31,7 @@ class PaslaugaController extends Controller
         $paslauga = new P;
         $paslauga->name = $request->name;
         $paslauga->deadline = $request->deadline;
-        $paslauga->price = (int) $request->price;
+        $paslauga->price = $request->price;
         $paslauga->save();
         return redirect()->route('pc_index')->with('success', 'gera paslauga!');
     }
