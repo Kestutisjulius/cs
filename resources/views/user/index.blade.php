@@ -26,7 +26,7 @@
                                             <a class="btn btn-outline-primary m-2" href="">Show</a>
 
                                             <a class="btn btn-outline-success m-2" href="">Edit</a>
-                                            <form  action="" method="post">
+                                            <form  action="" method="post" class="d-inline">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-outline-danger m-2">Kill</button>

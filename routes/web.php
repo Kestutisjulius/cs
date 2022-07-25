@@ -21,6 +21,9 @@ Route::get('/paslaugos', [PC::class, 'index'])->name('pc_index');
 Route::get('/paslauga/create', [PC::class, 'create'])->name('pc_create');
 Route::post('/paslauga/create', [PC::class, 'store'])->name('pc_store');
 Route::get('/vartotojai', [UC::class, 'index'])->name('uc_index');
+Route::get('/vartotoja/sukurti', [UC::class, 'create'])->name('uc_create');
+Route::post('/vartotoja/sukurti', [UC::class, 'store'])->name('uc_store');
+Route::delete('/vartotoja/{user}', [UC::class, 'destroy'])->name('uc_gone');
 
 Auth::routes();
 
