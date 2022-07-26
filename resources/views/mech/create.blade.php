@@ -31,7 +31,7 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
+                            <div class="col-5 mb-3">
                                 <label for="reitingas" class="col-md-4 col-form-label text-md-end">reitingas</label>
                                 <select id="reitingas" name="reitingas" class="form-select form-select-sm">
 
@@ -42,7 +42,18 @@
                                         <option value="5">aukstas</option>
 
                                 </select>
+                                <label for="paslaugos" class="col-md-4 col-form-label text-md-end">paslaugos</label>
+                                <select id="paslaugos" name="paslauga" class="form-select form-select-sm">
+
+                                    @foreach($paslaugos as $paslauga)
+                                        <option value="{{$paslauga->id}}" >{{$paslauga->name}}</option>
+                                    @endforeach
+
+
+                                </select>
                             </div>
+
+
 
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
