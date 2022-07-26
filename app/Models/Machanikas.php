@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Autoservisas;
+use App\Models\Paslauga;
 
 class Machanikas extends Model
 {
@@ -14,4 +15,5 @@ class Machanikas extends Model
     {
         return $this->hasMany(Autoservisas::class, 'mechanikas_id', 'id');
     }
+
 }

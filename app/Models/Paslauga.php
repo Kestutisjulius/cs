@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Invoice;
 use App\Models\Autoservisas;
+use App\Models\Machanikas;
 
 class Paslauga extends Model
 {
@@ -13,10 +14,10 @@ class Paslauga extends Model
 
     public function invoice()
     {
-        return $this->hasMany(Invoice::class, 'invoice_id', 'id');
+        return $this->hasMany(Invoice::class, 'paslauga_id', 'id');
     }
     public function autoservisas()
     {
-        return $this->hasMany(Autoservisas::class, 'paslauga_id', 'id');
+        return $this->hasMany(Autoservisas::class, 'autoservisas_id', 'id');
     }
 }

@@ -17,23 +17,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        $iName = DB::table('invoices', 'i')
-//            ->join('paslaugas', 'paslaugas.id', '=', 'invoices.paslauga_id')
-//            ->join('paslaugas', 'paslaugas.id', '=', 'autoservisas.paslauga_id')
-//            ->join('mechanikas', 'mechanikas.id', '=', 'mechanikas.paslauga_id')
-//            ->join('user', 'user.id', '=', 'invoices.user_id')
-            ->select('i.*')
-
-
-            ->get();
-
-
-//        $iName = I::all()->first();
-//        $paslauga=$iName->paslauga;
-//        $servisas = $iName->paslauga->autoservisas[0];
-//        $meistras = $iName->paslauga->autoservisas[0]->mechanikas;
-//        $uzsakymas = ['paslauga'=>$paslauga, 'meistras'=>$meistras, 'servisas'=>$servisas];
-        dd($iName);
-        return view('home', ['paslauga'=>$iName]);
+        $iName = I::all()->first() ?? [];
+//        dd($iName);
+        return view('home', ['invoices'=>$iName]);
     }
 }

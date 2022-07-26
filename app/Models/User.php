@@ -18,10 +18,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Invoice::class, 'user_id', 'id');
     }
-    public function paslauga()
-    {
-        return $this->hasMany(Paslauga::class, 'user_id', 'id');
-    }
+
 
 
     protected $fillable = [

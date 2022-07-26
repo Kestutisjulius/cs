@@ -22,16 +22,16 @@
                     <div class="card-body">
                         <ul class="list-group">
 
-                            @forelse($paslauga as $_)
+                            @forelse($invoices as $invoice)
                                 <li class="list-group-item">
                                     <div class="service-bin">
                                         <div class="service-box">
 
-                                            <h6>{{$_->name}}</h6>
+                                            <h6>{{$invoice}}</h6>
                                         </div>
                                         <div class="trijule invoice-row">
                                                 <div>
-                                                    sumoketi: {{$_}}
+                                                    sumoketi: {{$invoice}}
                                                 </div>
                                         </div>
                                     </div>

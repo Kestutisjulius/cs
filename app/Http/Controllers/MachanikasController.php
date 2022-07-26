@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Machanikas AS M;
+use App\Models\Paslauga AS P;
 use Illuminate\Http\Request;
 
 class MachanikasController extends Controller
@@ -21,7 +22,8 @@ class MachanikasController extends Controller
 
     public function create()
     {
-        return view('mech.create');
+
+        return view('mech.create',['paslaugos'=>P::all()]);
     }
 
     public function store(Request $request)
@@ -31,6 +33,7 @@ class MachanikasController extends Controller
         $mechanikas->surname = $request->surname;
         $mechanikas->photo = $request->photo;
         $mechanikas->rating = $request->reitingas;
+        $mechanikas->paslauga_id = $request->paslauga_id;
         $mechanikas->save();
         return redirect()->route('mc_index')->with('success', 'mechanikas Yra!');
     }

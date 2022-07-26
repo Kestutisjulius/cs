@@ -18,5 +18,6 @@ class Invoice extends Model
     public function paslauga()
     {
         return $this->belongsTo(Paslauga::class, 'paslauga_id', 'id');
+
     }
 }
