@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h1>visos Paslaugos</h1>
+                        <h1>visi vartotojai</h1>
                         <div> rusiuoti:
                             <a href="{{route('uc_index', ['sort' => 'asc'])}}">A to Z</a>
                             <a href="{{route('uc_index', ['sort' => 'desc'])}}">Z to A</a>
