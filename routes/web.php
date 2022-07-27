@@ -6,10 +6,9 @@ use App\Http\Controllers\AutoservisasController AS AC;
 use App\Http\Controllers\MachanikasController AS MC;
 use App\Http\Controllers\PaslaugaController AS PC;
 use App\Http\Controllers\UserController AS UC;
+use App\Http\Controllers\InvoiceController AS IC;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');})->name('front_welcome');
 
 Route::get('/autoservisas', [AC::class, 'index'])->name('ac_index');
 Route::get('/autoservisas/create', [AC::class, 'create'])->name('ac_create');
@@ -24,6 +23,8 @@ Route::get('/vartotojai', [UC::class, 'index'])->name('uc_index');
 Route::get('/vartotoja/sukurti', [UC::class, 'create'])->name('uc_create');
 Route::post('/vartotoja/sukurti', [UC::class, 'store'])->name('uc_store');
 Route::delete('/vartotoja/{user}', [UC::class, 'destroy'])->name('uc_gone');
+Route::post('/invoice', [IC::class, 'store'])->name('ic_store');
+Route::get('/invoices', [IC::class, 'index'])->name('ic_index');
 
 Auth::routes();
 

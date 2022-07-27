@@ -17,8 +17,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        $iName = I::all()->first() ?? [];
-//        dd($iName);
-        return view('home', ['invoices'=>$iName]);
+        $paslaugos = P::all();
+
+        return view('home', ['paslaugos'=>$paslaugos]);
     }
 }

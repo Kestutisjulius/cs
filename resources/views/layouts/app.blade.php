@@ -111,6 +111,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{route('ic_index')}}">
+                                        Mano ::UZSAKYMAI::
+                                    </a>
                                 @if(Auth::user()->role >= 2)
                                     <a class="dropdown-item" href="{{route('uc_index')}}">
                                         vartotoju sarasas
