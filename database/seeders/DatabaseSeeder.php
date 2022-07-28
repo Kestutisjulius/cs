@@ -18,7 +18,19 @@ class DatabaseSeeder extends Seeder
 
 
         foreach (range(1, 10) as $_) {
-            $services = ['Padangų montavimas', 'Lemputės keitimas', 'Stabdžių kaladėlės keitimas', 'Dažymas', 'Kėbulo remonto darbai', 'Oro kondicionieriaus remontas', 'Tepalų keitimas'];
+            $services = [
+                'Padangų montavimas',
+                'Lemputės keitimas', 'Stabdžių kaladėlės keitimas',
+                'Dažymas',
+                'Kėbulo remonto darbai',
+                'Oro kondicionieriaus remontas',
+                'Tepalų keitimas',
+                'Oro pagalviu remontas',
+                'Sedyniu uzvalkalu valymas',
+                'Variklio remontas',
+                $faker->jobTitle,
+                $faker->title,
+                $faker->jobTitle];
 
             DB::table('paslaugas')->insert([
                 'name' => $services[rand(0, count($services) - 1)],
@@ -52,7 +64,7 @@ class DatabaseSeeder extends Seeder
                 'paslauga_id'=>rand(1,10)
             ]);
         }
-        foreach (range(1, 10) as $_) {
+        foreach (range(1, 30) as $_) {
             DB::table('autoservisas')->insert([
                 'name' => $faker->company,
                 'address' => $faker->address,

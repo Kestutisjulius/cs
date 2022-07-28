@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('paslauga_id');
             $table->foreign('paslauga_id')->references('id')->on('paslaugas');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->decimal('suma', 8, 2);
             $table->string('user_ip', 45)->default(request()->ip());
             $table->timestamps();

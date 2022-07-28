@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('autoservisas', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
+            $table->string('name', 50)->default('I.I. Garaziukas');
             $table->string('phone', 21);
             $table->string('address', 100);
             $table->unsignedBigInteger('paslauga_id');
