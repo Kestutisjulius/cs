@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
 
             DB::table('paslaugas')->insert([
                 'name' => $services[rand(0, count($services) - 1)],
-                'deadline' => rand(10, 120),
+                'How_long_in_hours' => $faker->time,
                 'price' => rand(20, 200),
             ]);
         }

@@ -25,6 +25,7 @@ Route::post('/vartotoja/sukurti', [UC::class, 'store'])->name('uc_store');
 Route::delete('/vartotoja/{user}', [UC::class, 'destroy'])->name('uc_gone');
 Route::post('/invoice', [IC::class, 'store'])->name('ic_store');
 Route::get('/invoices', [IC::class, 'index'])->name('ic_index');
+Route::get('/invoice/{invoiceId}', [IC::class, 'show'])->name('ic_show');
 
 Auth::routes();
 

@@ -18,6 +18,6 @@ class Paslauga extends Model
     }
     public function autoservisas()
     {
-        return $this->hasMany(Autoservisas::class, 'autoservisas_id', 'id');
+        return $this->belongsTo(Autoservisas::class, 'autoservisas_id', 'id');
     }
 }

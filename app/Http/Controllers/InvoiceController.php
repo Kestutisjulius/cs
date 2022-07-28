@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Invoice;
 use App\Models\Paslauga;
+use App\Models\Autoservisas AS Auto;
 use Faker\Core\Uuid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,9 +39,13 @@ class InvoiceController extends Controller
         return redirect()->route('home')->with('success', 'paslauga uzsakyta');
     }
 
-    public function show(Invoice $invoice)
+    public function show( int $invoiceId)
     {
-        //
+        $invoice = Invoice::where('id', $invoiceId)->first();
+
+        $autoservisas = Auto::where('paslauga_id', $invoice->paslauga_id)->first();
+
+        return view('invoice.show', ['invoice'=>$invoice, 'autoservisas'=>$autoservisas]);
     }
 
     public function edit(Invoice $invoice)

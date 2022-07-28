@@ -13,3 +13,22 @@
 .trijule{
     display: flex;
 }
+.createdAt {
+    background-color: #a0aec0;
+    padding: 3px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px #1a202c;
+}
+.invoice-row{
+    background-color: rgba(200,50,50,0.7);
+    padding: 1px;
+    box-shadow: 1px 1px 2px #000;
+}
+.rating{
+    background-color: rgba(184, 134, 11, 0.8);
+    margin-right: 10px;
+    padding: 2px 2px 0;
+    border-radius: 3px;
+    text-align: center;
+
+}

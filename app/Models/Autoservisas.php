@@ -17,6 +17,6 @@ class Autoservisas extends Model
     }
     public function paslauga()
     {
-        return $this->belongsTo(Paslauga::class, 'paslauga_id', 'id');
+        return $this->hasMany(Paslauga::class, 'paslauga_id', 'id');
     }
 }

@@ -23,7 +23,7 @@
                                         </div>
                                         <div class="trijule">
                                             <h5>{{$invoice->deadline}}</h5>
-                                            <a class="btn btn-outline-primary m-2" href="{{route('ic_index', $invoice)}}">Show</a>
+                                            <a class="btn btn-outline-primary m-2" href="{{route('ic_show', $invoice->id)}}">Show</a>
 
                                         </div>
                                     </div>
