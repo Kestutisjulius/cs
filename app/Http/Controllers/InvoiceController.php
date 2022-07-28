@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Invoice;
 use App\Models\Paslauga;
 use App\Models\Autoservisas AS Auto;
-use Faker\Core\Uuid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class InvoiceController extends Controller
 {
@@ -26,6 +26,19 @@ class InvoiceController extends Controller
 
     public function store(Request $request)
     {
+
+        $validator = Validator::make($request->all(),
+            [
+                'deadline' => ['required']
+            ],
+            [
+                'required' => 'pasirinkite laika!'
+            ]
+        );
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
 
         $paslauga = Paslauga::where('id', $request->paslauga_id)->first();
         $invoice = new Invoice;
